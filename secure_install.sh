@@ -87,9 +87,7 @@ apt-get install -y chkrootkit
 
 echo "10 0 * * * root /usr/bin/chkrootkit | mail -s 'Chkrootkit daily Update' $ADMIN_EMAIL" >>/etc/crontab
 
-echo "$(tput setaf 1)Install Fail2Ban$(tput sgr0)"
-
-apt-get install -y fail2ban
+echo "$(tput setaf 1)configure Fail2Ban$(tput sgr0)"
 
 sed -i 's/mta = sendmail/mta = mail/g' /etc/fail2ban/jail.conf
 sed -i "s/destemail = root@localhost/destemail = $ADMIN_EMAIL/g" /etc/fail2ban/jail.conf
